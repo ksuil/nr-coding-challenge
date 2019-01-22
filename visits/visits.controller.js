@@ -1,6 +1,8 @@
+const db = require('../config/db');
 
-const getVisits = (req, res, next) => {
-    return res.json('Testing Changing Values');
+const getVisits = async (req, res, next) => {
+    const visits = await db.visit.findAndCountAll();
+    return res.json(visits);
 }
 
 const postVisits = (req, res, next) => {
