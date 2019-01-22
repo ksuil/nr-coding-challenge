@@ -4,7 +4,12 @@ const getVisits = (req, res, next) => {
 }
 
 const postVisits = (req, res, next) => {
-    return res.json('Another Test');
+    const newVisits = req.body;
+    
+    return res.json({
+        'status': 'OK',
+        newVisits
+    });
 }
 
 module.exports = {    
