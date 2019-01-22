@@ -11,6 +11,10 @@ Once the mysql engine is up and running, start the application with `docker-comp
 
 The api will run the migration engine first to insert the table in the database, then it will start up the api.
 
+Access the api through http://localhost:3000
+
+Use postman or your favorite api testing tools to send the requests as requested in the [nr-coding-challenge](https://gist.github.com/ericdcobb/b7b7fefcf34ef2b698570af9c677e0ef)
+
 ## Scale, Performance and Persistence
 A challenge to myself was to write this using docker and node. Node was not installed on my gaming machine for this. Most of the time was spent just getting a working dev environment spun up. I was able to get nodemon working through the docker share, as well as a debug connection. (this was pretty slow, I would have to tweak it to really make it usable in day to day programming).
 
