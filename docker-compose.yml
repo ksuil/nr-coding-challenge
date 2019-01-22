@@ -1,0 +1,27 @@
+version: '2'
+services:
+  migration:
+    build: .
+    image: api
+    command: sequelize --config src/config/config.js --migrations-path src/migrations db:migrate
+    volumes: 
+      - .:/www/src
+    env_file: .env
+  api:
+    image: api
+    command: nodemon --legacy-watch --inspect=0.0.0.0:51337 src/bin/www
+    volumes: 
+      - .:/www/src
+    ports:
+      - "3000:3000"
+      - "51337:51337"
+    depends_on:
+      - mysql
+      - migration
+    env_file: .env
+  mysql:
+    image: mysql:5.7
+    ports:
+      - "3306:3306"
+    env_file: .env
+    

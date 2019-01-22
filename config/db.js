@@ -1,9 +1,12 @@
 const Sequelize = require('sequelize');
 
+const dbConfig = require('./config');
 const modelRepo = require('../models');
 
-const sequelize = new Sequelize('test', 'root', 'password', {
-  host: 'mysql',
+const config = dbConfig.development;
+
+const sequelize = new Sequelize(config.database, config.username, config.password, {
+  host: config.host,
   dialect: 'mysql',
   pool: {
     max: 5,
